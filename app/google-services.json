@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "481704369835",
+    "firebase_url": "https://mytakuhainet.firebaseio.com",
+    "project_id": "mytakuhainet",
+    "storage_bucket": "mytakuhainet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481704369835:android:b6d9b61e461f95b0",
+        "android_client_info": {
+          "package_name": "jp.ac.u_tokyo.jphacks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "481704369835-1o4pg0eq37tklb24ohrtjbc7i9p1tm6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzkLDY2_DLMgJDaAz_Uuqvhkd3xo_WuyU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

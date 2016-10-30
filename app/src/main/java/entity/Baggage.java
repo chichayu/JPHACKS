@@ -25,59 +25,32 @@ public class Baggage implements Serializable {
     }
      */
 
-    @SerializedName("company")
-    String company;
+    String companyflag;
+    String deliveryname;
+    String scheduledday;
+    String scheduletime;
 
-    @SerializedName("product")
-    String name;
-
-    @SerializedName("date")
-    String date;
-
-    String starttime;
-    String endtime;
-
-    public Baggage() {
+    Baggage(String companyflag, String deliveryname, String scheduledday, String scheduletime) {
+        this.companyflag = companyflag;
+        this.deliveryname = deliveryname;
+        this.scheduledday = scheduledday;
+        this.scheduletime = scheduletime;
     }
 
-    public Baggage(String company, String name, String date, String starttime, String endtime) {
-        this.company = company;
-        this.name = name;
-        this.date = date;
-        this.starttime = starttime;
-        this.endtime = endtime;
+    public String getCompanyflag() {
+        return companyflag;
     }
 
-    public String getName() {
-        return name;
+    public String getDeliveryname() {
+        return deliveryname;
     }
 
-    public void setName(String commodity) {
-        this.name = commodity;
+    public String getScheduledday() {
+        return scheduledday;
     }
 
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getStarttime() {
-        return starttime;
-    }
-
-    public String getEndtime() {
-        return endtime;
+    public String getScheduletime() {
+        return scheduletime;
     }
 
 }

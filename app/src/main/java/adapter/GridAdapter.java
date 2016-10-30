@@ -22,17 +22,25 @@ import jp.ac.u_tokyo.jphacks.R;
  * Created by xixi on 10/21/16.
  */
 public class GridAdapter extends BaseAdapter {
+
+     /*
+    private static final int[] iconItems = {
+            android.R.drawable.ic_yamato,
+            android.R.drawable.ic_sagawa,
+            android.R.drawable.ic_nihon
+    };
+    */
+
     private LayoutInflater inflater;
     private int layoutId;
     private List<Baggage> list = new ArrayList<Baggage>();
-    private Bitmap[] bmapIcons;
 
     static class ViewHolder {
         TextView name;
         TextView date;
         TextView starttime;
         TextView endtime;
-        ImageView icon;
+       // ImageView icon;
     }
 
     public GridAdapter(Context context, int layoutId, ArrayList<Baggage> list) {
@@ -40,11 +48,14 @@ public class GridAdapter extends BaseAdapter {
         this.inflater = LayoutInflater.from(context);
         this.layoutId = layoutId;
         this.list = list;
-        //bmapIcons = new Bitmap[list.length];
+    }
 
-        //for(int i = 0; i < iconItems.length; i++) {
-        //    bmapIcons[i] = BitmapFactory.decodeResource(context.getResources(), iconItems[i]);
-        //}
+    public boolean add(Baggage baggage){
+        boolean ress = list.add(baggage);
+        if(ress){
+            notifyDataSetChanged();
+        }
+        return ress;
     }
 
     @Override
@@ -60,26 +71,27 @@ public class GridAdapter extends BaseAdapter {
             holder.date = (TextView) convertView.findViewById(R.id.dateView);
             holder.starttime = (TextView) convertView.findViewById(R.id.startView);
             holder.endtime = (TextView) convertView.findViewById(R.id.endView);
-            holder.icon = (ImageView) convertView.findViewById(R.id.iconItem);
+          //  holder.icon = (ImageView) convertView.findViewById(R.id.iconItem);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
         Baggage bag = (Baggage) getItem(position);
-        holder.name.setText(bag.getName());
-        holder.date.setText(bag.getDate());
-        holder.starttime.setText(bag.getStarttime());
-        holder.endtime.setText(bag.getEndtime());
-        holder.icon.setImageBitmap(bmapIcons[position]);
+        holder.name.setText(bag.getDeliveryname());
+        holder.date.setText(bag.getScheduledday());
+        holder.starttime.setText(bag.getScheduletime());
+        holder.endtime.setText(bag.getScheduletime());
 
-
-        if (bag.getCompany() == "yamato") {
-            convertView.setBackgroundColor(Color.BLACK);
-        } else if (bag.getCompany() == "sagawa") {
-            convertView.setBackgroundColor(Color.BLACK);
-        } else if (bag.getCompany() == "nihon") {
+        if (bag.getCompanyflag() == "1") {
+            convertView.setBackgroundColor(Color.GREEN);
+            //   holder.icon.setImageResource(iconItems[0]);
+        } else if (bag.getCompanyflag() == "2") {
+            convertView.setBackgroundColor(Color.BLUE);
+            //   holder.icon.setImageResource(iconItems[1]);
+        } else if (bag.getCompanyflag() == "3") {
             convertView.setBackgroundColor(Color.parseColor("#444444"));
+         //   holder.icon.setImageResource(iconItems[2]);
         }
 
         return convertView;
